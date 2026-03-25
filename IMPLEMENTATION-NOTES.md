@@ -1,61 +1,41 @@
-# Villa Gorilla V2 - Implementation Notes
+# Implementation Notes - V2 Redesign
 
-## Live Site
-**Production URL:** https://villagorilla-v2.vercel.app
+**Date:** 2026-03-25
+**Deployed to:** https://villagorilla-v2.vercel.app
 
-## GitHub
-**Repository:** https://github.com/svantepagels/villagorilla-v2
+## What Changed
 
-## Design Changes (V1 → V2)
+### Complete visual redesign from text-heavy to image-heavy (matching Minibojarna)
 
-| Aspect | V1 | V2 |
-|--------|----|----|
-| Font | Inter | Poppins (next/font/google) |
-| Colors | Jungle green, banana yellow, beige | Neutral charcoal/grays, white |
-| Buttons | Rounded, colored | Square, black/white |
-| Cards | Rounded, shadows, hover lift | Square, minimal borders, no hover |
-| Spacing | Compact (py-16) | Generous (py-20 to py-28) |
-| Max Width | 1200px | 768-1024px (narrower, reading-focused) |
-| Hero | Gradient green bg, emoji 🦍 | Clean white, typography-focused |
-| Staff | Icon circles | Initial squares |
-| Overall | Playful, energetic | Calm, sophisticated (Minibojarna-inspired) |
+**Before:** 95% text, Tailwind defaults, indigo accent, narrow layout
+**After:** ~60% images, Minibojarna-matching design system
 
-## Functionality (100% Preserved)
-- ✅ All 7 Swedish pages with exact same content
-- ✅ Admin login (`/admin/login`) - password: `villagorilla-admin-2026`
-- ✅ Admin event CRUD (`/admin/events`) - real Vercel Blob storage
-- ✅ Öppet hus calendar with signup form (4 fields)
-- ✅ Contact form with email integration
-- ✅ Middleware auth for admin routes
-- ✅ Zod validation on all forms
+### Design System Applied
+- **Typography:** Poppins 300-700 (unchanged font, fixed weights/usage)
+- **Colors:** `#706D6D` body text, `#000000` headings/buttons, white background
+- **Spacing:** `4vw`/`6vw` padding, `1400px` max-width
+- **Buttons:** Square (0 border-radius), uppercase, tracking-wider
+- **Navigation:** Centered layout with logo on top (brandingCenter pattern)
 
-## Environment Variables (Vercel)
-- `BLOB_READ_WRITE_TOKEN` ✅ Configured (shared with V1)
-- `ADMIN_TOKEN` ✅ Configured
-- `NEXT_PUBLIC_SITE_URL` ✅ Configured
-- `RESEND_API_KEY` ⚠️ **PLACEHOLDER** - Set to `re_placeholder_configure_before_use`
-  - Email sending is gracefully disabled until a real Resend API key is configured
-  - The app logs email actions to console instead of sending
-  - To enable: Get a key from https://resend.com and update in Vercel dashboard
+### Images Downloaded (10 total)
+- 4× Garden/outdoor photos (VG_garden_1-4.jpg)
+- 3× Children activity photos (children_1-3.jpg)
+- 1× Snow play photo
+- 1× Crafts photo
+- 1× Logo (VG-logo.png)
 
-## Local Development
-```bash
-cd villagorilla-v2
-npm install
-npm run dev
-# Open http://localhost:3000
-```
+### Pages Redesigned
+1. **Homepage:** Full-width hero with overlay → intro → 2-col photo grid → pedagogy (image+text) → full-width craft image → stats → 3-col photo grid → lokaler section → CTA with bg image
+2. **Om oss:** Hero image → pedagogy with photos → team section → health/food
+3. **Lokaler:** Hero → 4-photo grid → room descriptions → outdoor section → location
+4. **Inskolning:** Hero → steps with image → CTA
+5. **Kooperativ:** Hero → board info with image → parent contributions → full-width image
+6. **Öppet hus:** Hero → events → 3-photo grid
+7. **Kontakt:** Hero → form + info
+8. **Header:** Centered logo + centered nav (uppercase, tracking-wider)
+9. **Footer:** White bg, clean 3-col layout with logo
 
-## Architecture
-- Next.js 14 (App Router)
-- Tailwind CSS 3 with @tailwindcss/typography
-- Poppins font via next/font/google
-- Vercel Blob for event storage
-- Resend for transactional emails (when configured)
-- Zod for form validation
-- Radix UI for accessible button primitives
-
-## Notes
-- V1 and V2 share the same Blob storage token, so events are shared between both sites
-- Removed @radix-ui/react-dialog (not used in V2 - simpler inline forms)
-- No images extracted yet - pages are text-focused per Minibojarna style
+### CSS Architecture
+- Custom `@layer components` for `.section-padding`, `.max-site`, `.btn-primary`, `.btn-outline`
+- Responsive: mobile uses `6vw` gutters, desktop `4vw`
+- All images use Next.js `<Image>` with proper `sizes` and `fill`/`object-cover`
