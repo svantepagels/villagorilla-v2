@@ -1,56 +1,56 @@
 import Link from 'next/link';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import Image from 'next/image';
 
 export function Footer() {
   return (
-    <footer className="bg-charcoal text-white">
-      <div className="container mx-auto px-6 py-16 max-w-5xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+    <footer className="bg-white border-t border-gray-200">
+      <div className="section-padding section-padding-y max-site">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           <div>
-            <h3 className="text-lg font-semibold mb-4">Villa Gorilla</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <Image
+              src="/images/VG-logo.png"
+              alt="Villa Gorilla"
+              width={150}
+              height={67}
+              className="h-12 w-auto mb-4"
+            />
+            <p className="text-sm text-secondary leading-relaxed">
               Föräldrakooperativ förskola på Kungsholmen med hög personaltäthet,
-              erfarna pedagoger och en trygg miljö för ditt barns utveckling.
+              erfarna pedagoger och en trygg miljö.
             </p>
           </div>
 
           <div>
-            <h4 className="font-medium mb-4">Kontakt</h4>
-            <ul className="space-y-3 text-sm text-gray-400">
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 shrink-0" />
-                <span>Hjärnegatan 6, 112 30 Stockholm</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone size={16} className="shrink-0" />
-                <a href="tel:+46812345678" className="hover:text-white transition-colors">
+            <h4 className="font-medium text-black mb-4 uppercase text-sm tracking-wider">Kontakt</h4>
+            <ul className="space-y-2 text-sm text-secondary">
+              <li>Hjärnegatan 6, 112 30 Stockholm</li>
+              <li>
+                <a href="tel:+46812345678" className="hover:text-black transition-colors">
                   08-123 456 78
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Mail size={16} className="shrink-0" />
-                <a href="mailto:info@villagorilla.se" className="hover:text-white transition-colors">
+              <li>
+                <a href="mailto:info@villagorilla.se" className="hover:text-black transition-colors">
                   info@villagorilla.se
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <Clock size={16} className="shrink-0" />
-                <span>Mån–Fre 07:00–18:00</span>
-              </li>
+              <li>Mån–Fre 07:00–18:00</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-medium mb-4">Snabblänkar</h4>
+            <h4 className="font-medium text-black mb-4 uppercase text-sm tracking-wider">Sidor</h4>
             <ul className="space-y-2 text-sm">
               {[
                 { href: '/om-oss', label: 'Om oss' },
+                { href: '/lokaler', label: 'Lokaler' },
                 { href: '/oppet-hus', label: 'Öppet hus' },
                 { href: '/inskolning', label: 'Inskolning' },
+                { href: '/kooperativ', label: 'Kooperativ' },
                 { href: '/kontakt', label: 'Kontakt' },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">
+                  <Link href={link.href} className="text-secondary hover:text-black transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -59,8 +59,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Villa Gorilla Förskola. Alla rättigheter förbehållna.</p>
+        <div className="border-t border-gray-200 mt-12 pt-8 text-center text-xs text-secondary">
+          <p>© {new Date().getFullYear()} Villa Gorilla Förskola</p>
         </div>
       </div>
     </footer>

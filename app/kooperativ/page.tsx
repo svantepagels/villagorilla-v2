@@ -1,74 +1,111 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Kooperativ – Så fungerar vårt föräldrakooperativ',
-  description: 'Sedan 2015 drivs Villa Gorilla som ett personal- och föräldrakooperativ. Läs om hur det fungerar och vad det innebär som förälder.',
+  description: 'Sedan 2015 drivs Villa Gorilla som ett personal- och föräldrakooperativ.',
 };
 
 export default function KooperativPage() {
   return (
-    <div className="py-16 md:py-24">
-      <div className="container mx-auto px-6 max-w-3xl">
-        <h1 className="text-4xl font-semibold mb-8 text-charcoal">Kooperativet</h1>
-        <p className="text-lg text-gray-500 mb-12 leading-relaxed">
-          Sedan januari 2015 drivs Villa Gorilla som ett <strong>personal- och
-          föräldrakooperativ</strong>. Det innebär en unik gemenskap mellan barn,
-          personal och föräldrar.
-        </p>
+    <>
+      {/* Hero */}
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+        <Image
+          src="/images/VG_garden_4.jpg"
+          alt="Villa Gorilla kooperativ"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-white">Kooperativet</h1>
+        </div>
+      </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold mb-4 text-charcoal">Styrelse och beslut</h2>
-          <p className="text-gray-500 mb-4 leading-relaxed">
-            Styrelsen består av lika många föräldrar som personalrepresentanter,
-            med en ordförande som alltid är förälder. Styrelsen är huvudman för förskolan.
+      {/* Intro */}
+      <section className="section-padding section-padding-y">
+        <div className="max-site max-w-3xl mx-auto text-center">
+          <p className="text-lg leading-relaxed">
+            Sedan januari 2015 drivs Villa Gorilla som ett <strong className="text-black">personal- och
+            föräldrakooperativ</strong>. Det innebär en unik gemenskap mellan barn,
+            personal och föräldrar.
           </p>
-          <p className="text-gray-500 leading-relaxed">
-            Professionell och engagerad personal har huvudansvaret för den pedagogiska
-            verksamheten. På årsmötet röstar personal och föräldrar tillsammans fram
-            samtliga styrelseledamöter.
-          </p>
-        </section>
+        </div>
+      </section>
 
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold mb-4 text-charcoal">Föräldrarnas insatser</h2>
-          <p className="text-gray-500 mb-8 leading-relaxed">
-            Föräldrarnas åtaganden varierar och kan innebära styrelseuppdrag,
-            arbetsgrupper (lokalgrupp, trivselgrupp m.fl.) och gemensam storstädning
-            en helg per termin.
-          </p>
+      {/* Board + Image */}
+      <section className="section-padding pb-[4vw]">
+        <div className="max-site grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl font-medium mb-6">Styrelse och beslut</h2>
+            <p className="mb-4 leading-relaxed">
+              Styrelsen består av lika många föräldrar som personalrepresentanter,
+              med en ordförande som alltid är förälder. Styrelsen är huvudman för förskolan.
+            </p>
+            <p className="leading-relaxed">
+              Professionell och engagerad personal har huvudansvaret för den pedagogiska
+              verksamheten. På årsmötet röstar personal och föräldrar tillsammans.
+            </p>
+          </div>
+          <div className="relative aspect-[3/2] overflow-hidden">
+            <Image
+              src="/images/children_1.jpg"
+              alt="Gemenskap"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </section>
 
+      {/* Parent contributions */}
+      <section className="section-padding section-padding-y bg-neutral-50">
+        <div className="max-site max-w-4xl mx-auto">
+          <h2 className="text-3xl font-medium text-center mb-12">Föräldrarnas insatser</h2>
           <div className="grid sm:grid-cols-2 gap-8">
-            <div className="bg-gray-50 p-8">
-              <h3 className="font-semibold mb-4 text-charcoal">Det här gör vi föräldrar</h3>
-              <ul className="space-y-2 text-sm text-gray-500">
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-charcoal rounded-full" /> Styrelseuppdrag</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-charcoal rounded-full" /> Arbetsgrupper</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-charcoal rounded-full" /> Gemensam storstädning</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-charcoal rounded-full" /> Bidrar till gemenskap</li>
+            <div className="border-t-2 border-black pt-6">
+              <h3 className="font-medium text-black text-lg mb-4">Det här gör vi föräldrar</h3>
+              <ul className="space-y-2 text-secondary">
+                <li>• Styrelseuppdrag</li>
+                <li>• Arbetsgrupper</li>
+                <li>• Gemensam storstädning</li>
+                <li>• Bidrar till gemenskap</li>
               </ul>
             </div>
-            <div className="bg-gray-50 p-8">
-              <h3 className="font-semibold mb-4 text-charcoal">Det här gör vi INTE</h3>
-              <ul className="space-y-2 text-sm text-gray-500">
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-gray-400 rounded-full" /> Aktiva i verksamheten</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-gray-400 rounded-full" /> Jour vid sjukdom</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-gray-400 rounded-full" /> Tillagar mat</li>
-                <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 bg-gray-400 rounded-full" /> Vi låter proffsen göra sitt jobb!</li>
+            <div className="border-t-2 border-neutral-300 pt-6">
+              <h3 className="font-medium text-black text-lg mb-4">Det här gör vi INTE</h3>
+              <ul className="space-y-2 text-secondary">
+                <li>• Aktiva i verksamheten</li>
+                <li>• Jour vid sjukdom</li>
+                <li>• Tillagar mat</li>
+                <li>• Vi låter proffsen göra sitt jobb!</li>
               </ul>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section className="bg-gray-50 p-10">
-          <h2 className="text-xl font-semibold mb-3 text-charcoal">Pengarna går till barnen</h2>
-          <p className="text-gray-500 leading-relaxed">
+      {/* Full width image */}
+      <section className="relative h-[40vh] overflow-hidden">
+        <Image src="/images/crafts_1.jpg" alt="Aktiviteter" fill className="object-cover" sizes="100vw" />
+      </section>
+
+      {/* Money goes to kids */}
+      <section className="section-padding section-padding-y">
+        <div className="max-site max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-medium mb-6">Pengarna går till barnen</h2>
+          <p className="text-lg leading-relaxed">
             Syftet med föräldrarnas insatser är att frigöra ekonomiska resurser som går
             direkt till den pedagogiska verksamheten: hög personaltäthet, tillgång till
             material och möjligheter till spännande aktiviteter.
-            <strong> Hela ditt barns kommunala förskolepeng går till verksamheten.</strong>
+            <strong className="text-black"> Hela ditt barns kommunala förskolepeng går till verksamheten.</strong>
           </p>
-        </section>
-      </div>
-    </div>
+        </div>
+      </section>
+    </>
   );
 }

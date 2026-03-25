@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const navItems = [
   { href: '/om-oss', label: 'Om oss' },
@@ -18,30 +18,37 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200">
-      <div className="container mx-auto px-6 max-w-5xl">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="font-semibold text-xl text-charcoal tracking-tight">
-            Villa Gorilla
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
+      <div className="section-padding max-site">
+        <div className="flex flex-col items-center py-4">
+          {/* Centered logo */}
+          <Link href="/" className="mb-3">
+            <Image
+              src="/images/VG-logo.png"
+              alt="Villa Gorilla"
+              width={200}
+              height={90}
+              className="h-16 md:h-20 w-auto"
+              priority
+            />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
+          {/* Centered nav */}
+          <nav className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-charcoal transition-colors"
+                className="text-sm font-medium text-secondary hover:text-black transition-colors tracking-wide uppercase"
               >
                 {item.label}
               </Link>
             ))}
-            <Button size="sm" className="ml-3" asChild>
-              <Link href="/oppet-hus">Boka visning</Link>
-            </Button>
           </nav>
 
+          {/* Mobile menu button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden absolute right-4 top-6 p-2"
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Stäng meny' : 'Öppna meny'}
           >
@@ -50,22 +57,17 @@ export function Header() {
         </div>
 
         {open && (
-          <nav className="md:hidden pb-4 border-t border-gray-200 pt-2">
+          <nav className="md:hidden pb-4 border-t border-gray-100 pt-4">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="block px-3 py-3 text-base font-medium text-gray-600 hover:text-charcoal"
+                className="block py-3 text-base font-medium text-secondary hover:text-black uppercase tracking-wide"
               >
                 {item.label}
               </Link>
             ))}
-            <div className="mt-2 px-3">
-              <Button className="w-full" asChild>
-                <Link href="/oppet-hus" onClick={() => setOpen(false)}>Boka visning</Link>
-              </Button>
-            </div>
           </nav>
         )}
       </div>

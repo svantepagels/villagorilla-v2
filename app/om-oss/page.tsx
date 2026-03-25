@@ -1,107 +1,180 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
   title: 'Om oss – Vår pedagogik och värderingar',
   description: 'Lär känna Villa Gorilla – en föräldrakooperativ förskola med erfarna pedagoger, hög personaltäthet och en pedagogik byggd på Lpfö-18.',
 };
 
+const staff = [
+  { name: 'Maria Andersson', role: 'Rektor & Förskolelärare' },
+  { name: 'Erik Johansson', role: 'Leg. Förskolelärare' },
+  { name: 'Sara Lindgren', role: 'Leg. Förskolelärare' },
+  { name: 'Anna Svensson', role: 'Barnskötare' },
+  { name: 'Johan Pettersson', role: 'Barnskötare' },
+  { name: 'Lisa Karlsson', role: 'Barnskötare' },
+  { name: 'Karin Nilsson', role: 'Barnskötare' },
+];
+
 export default function OmOssPage() {
   return (
-    <div className="py-16 md:py-24">
-      <div className="container mx-auto px-6 max-w-3xl">
-        <h1 className="text-4xl font-semibold mb-8 text-charcoal">Om Villa Gorilla</h1>
-        <p className="text-lg text-gray-500 mb-12 leading-relaxed">
-          Villa Gorilla är en föräldrakooperativ förskola på Kungsholmen i Stockholm.
-          Vi värdesätter ditt barns lärande och skapar en trygg och lugn miljö där varje
-          barn får utvecklas i sin egen takt.
-        </p>
-
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold mb-4 text-charcoal">Vår pedagogik</h2>
-          <p className="text-gray-500 mb-4 leading-relaxed">
-            Vi ser barnen som kompetenta individer som kan och vill lära, utvecklas och ställas
-            inför nya utmaningar. Vi uppmuntrar till självständighet och vi ger barnen den tid
-            de behöver.
-          </p>
-          <p className="text-gray-500 mb-4 leading-relaxed">
-            Rutiner och upprepningar är en viktig byggsten i vår verksamhet. Genom upprepning
-            lär och utvecklas barnen, och rutinerna skapar trygghet.
-          </p>
-          <p className="text-gray-500 mb-4 leading-relaxed">
-            Vår pedagogiska verksamhet är planerad och uppbyggd utifrån de mål och riktlinjer
-            som läroplanen innehåller. Vi jobbar efter den senast uppdaterade versionen av
-            förskolans läroplan (Lpfö-18).
-          </p>
-        </section>
-
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold mb-4 text-charcoal">Blandade åldersgrupper</h2>
-          <p className="text-gray-500 mb-4 leading-relaxed">
-            Den blandade åldersgruppen på Villa Gorilla är en styrka. Stora och små lär av
-            varandra. Det utvecklar barnens empati, förmåga att samarbeta, att visa hänsyn,
-            dela med sig och lösa konflikter.
-          </p>
-          <p className="text-gray-500 mb-4 leading-relaxed">
-            Naturligtvis delar vi även upp gruppen efter ålder och mognad, eftersom barn i
-            skiftande åldrar har olika behov. Vi ordnar femårsverksamhet i samarbete med
-            andra kooperativ på Kungsholmen för att förbereda våra äldsta barn inför
-            skolstarten.
-          </p>
-        </section>
-
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold mb-4 text-charcoal">Vårt team</h2>
-          <p className="text-gray-500 mb-4 leading-relaxed">
-            På Villa Gorilla är pedagogerna det viktigaste för att få förskolan att fungera
-            på bästa vis. Vi har <strong>7 fast anställda</strong>, varav <strong>3 legitimerade
-            förskolelärare</strong>. Övriga är erfarna barnskötare.
-          </p>
-          <p className="text-gray-500 mb-4 leading-relaxed">
-            Vår personaltäthet är <strong>4,7 barn per pedagog</strong> – något vi är mycket
-            stolta över och prioriterar högt. Pedagogerna har en lång och gedigen erfarenhet
-            av att arbeta på förskola.
-          </p>
-          <p className="text-gray-500 leading-relaxed">
-            De undervisar bl.a. i skapande, rörelse, sång, musik, svenska, natur, teknik och
-            matematik – utefter barnens intressen, mognad och ålder.
-          </p>
-        </section>
-
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold mb-4 text-charcoal">Hälsa och kost</h2>
-          <p className="text-gray-500 mb-4 leading-relaxed">
-            Barnens hälsa är en grundsten i deras välmående. Vi serverar hälsosam och god kost
-            och föredrar ekologiska råvaror. Vi undviker halvfabrikat och följer Livsmedelsverkets
-            rekommendationer.
-          </p>
-          <p className="text-gray-500 mb-4 leading-relaxed">
-            Måltiderna präglas av lugn och ro med tid för samtal och övning i att skära, smöra,
-            hälla och skicka runt till bordsgrannen. Vi prioriterar rörelse genom bl.a. &quot;Mini-röris&quot;
-            och fredagsdisco!
-          </p>
-        </section>
-
-        <section className="mb-16">
-          <h2 className="text-2xl font-semibold mb-4 text-charcoal">Traditioner</h2>
-          <p className="text-gray-500 mb-4 leading-relaxed">
-            På Villa Gorilla uppmärksammar vi årets högtider: Lucia, julgransplundring,
-            Halloween och gemensam sommaravslutning. Vår trivselgrupp ordnar även aktiviteter
-            för föräldrar och barn under året, som t.ex. &quot;after-föris&quot;.
-          </p>
-        </section>
-
-        <div className="bg-gray-50 p-10 text-center">
-          <h3 className="text-xl font-semibold mb-3 text-charcoal">Nyfiken på att besöka oss?</h3>
-          <p className="text-gray-500 mb-6">
-            Kom på vårt öppet hus och se hur det ser ut hos oss.
-          </p>
-          <Button asChild>
-            <Link href="/oppet-hus">Se kommande öppet hus</Link>
-          </Button>
+    <>
+      {/* Hero image */}
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+        <Image
+          src="/images/children_1.jpg"
+          alt="Barn på Villa Gorilla"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-4xl md:text-6xl font-bold text-white">Om Villa Gorilla</h1>
         </div>
-      </div>
-    </div>
+      </section>
+
+      {/* Intro */}
+      <section className="section-padding section-padding-y">
+        <div className="max-site max-w-3xl mx-auto text-center">
+          <p className="text-lg leading-relaxed">
+            Villa Gorilla är en föräldrakooperativ förskola på Kungsholmen i Stockholm.
+            Vi värdesätter ditt barns lärande och skapar en trygg och lugn miljö där varje
+            barn får utvecklas i sin egen takt.
+          </p>
+        </div>
+      </section>
+
+      {/* Pedagogy - Image left, text right */}
+      <section className="section-padding pb-[4vw]">
+        <div className="max-site grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="relative aspect-[4/5] overflow-hidden">
+            <Image
+              src="/images/children_2.jpg"
+              alt="Pedagogisk aktivitet"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+          <div>
+            <h2 className="text-3xl font-medium mb-6">Vår pedagogik</h2>
+            <p className="mb-4 leading-relaxed">
+              Vi ser barnen som kompetenta individer som kan och vill lära, utvecklas och
+              ställas inför nya utmaningar. Vi uppmuntrar till självständighet och vi ger
+              barnen den tid de behöver.
+            </p>
+            <p className="mb-4 leading-relaxed">
+              Rutiner och upprepningar är en viktig byggsten. Genom upprepning lär och
+              utvecklas barnen, och rutinerna skapar trygghet.
+            </p>
+            <p className="leading-relaxed">
+              Vår pedagogiska verksamhet är planerad utifrån de mål och riktlinjer som
+              läroplanen Lpfö-18 innehåller.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Full width image */}
+      <section className="relative h-[40vh] md:h-[50vh] overflow-hidden">
+        <Image
+          src="/images/crafts_1.jpg"
+          alt="Skapande aktiviteter"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+      </section>
+
+      {/* Mixed ages */}
+      <section className="section-padding section-padding-y">
+        <div className="max-site grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-3xl font-medium mb-6">Blandade åldersgrupper</h2>
+            <p className="mb-4 leading-relaxed">
+              Den blandade åldersgruppen på Villa Gorilla är en styrka. Stora och små lär av
+              varandra. Det utvecklar barnens empati, förmåga att samarbeta, att visa hänsyn,
+              dela med sig och lösa konflikter.
+            </p>
+            <p className="leading-relaxed">
+              Naturligtvis delar vi även upp gruppen efter ålder och mognad. Vi ordnar
+              femårsverksamhet i samarbete med andra kooperativ på Kungsholmen.
+            </p>
+          </div>
+          <div className="relative aspect-[4/5] overflow-hidden">
+            <Image
+              src="/images/children_3.jpg"
+              alt="Barn i blandade åldrar"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Team section */}
+      <section className="section-padding section-padding-y bg-neutral-50">
+        <div className="max-site text-center">
+          <h2 className="text-3xl md:text-4xl font-medium mb-4">Vårt team</h2>
+          <p className="text-secondary max-w-2xl mx-auto mb-12">
+            7 fast anställda med lång och gedigen erfarenhet. 3 legitimerade förskolelärare.
+            Personaltäthet: 4,7 barn per pedagog.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {staff.map((person) => (
+              <div key={person.name} className="text-center">
+                <div className="w-24 h-24 mx-auto mb-4 bg-neutral-200 rounded-full flex items-center justify-center text-2xl font-medium text-secondary">
+                  {person.name.split(' ').map(n => n[0]).join('')}
+                </div>
+                <h3 className="font-medium text-black text-sm">{person.name}</h3>
+                <p className="text-xs text-secondary mt-1">{person.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Health & food - with image */}
+      <section className="section-padding section-padding-y">
+        <div className="max-site grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="relative aspect-[3/2] overflow-hidden">
+            <Image
+              src="/images/snow_play.jpg"
+              alt="Utomhuslek"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+          <div>
+            <h2 className="text-3xl font-medium mb-6">Hälsa och kost</h2>
+            <p className="mb-4 leading-relaxed">
+              Vi serverar hälsosam och god kost och föredrar ekologiska råvaror. Vi undviker
+              halvfabrikat och följer Livsmedelsverkets rekommendationer.
+            </p>
+            <p className="leading-relaxed">
+              Alla barn är utomhus minst en gång per dag. Vi prioriterar rörelse genom
+              bl.a. &quot;Mini-röris&quot; och fredagsdisco!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative h-[40vh] overflow-hidden flex items-center justify-center">
+        <Image src="/images/VG_garden_1.jpg" alt="" fill className="object-cover" sizes="100vw" />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative text-center section-padding">
+          <h2 className="text-3xl md:text-4xl font-medium text-white mb-6">Nyfiken?</h2>
+          <Link href="/oppet-hus" className="btn-primary bg-white text-black hover:bg-gray-100">
+            Boka öppet hus
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }

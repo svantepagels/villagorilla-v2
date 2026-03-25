@@ -8,32 +8,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        charcoal: '#2C2C2C',
-        accent: {
-          DEFAULT: '#4F46E5',
-          hover: '#4338CA',
-        },
+        primary: '#000000',
+        secondary: '#706D6D',
+        accent: '#000000',
       },
       fontFamily: {
         sans: ['var(--font-poppins)', 'system-ui', 'sans-serif'],
       },
-      typography: () => ({
-        DEFAULT: {
-          css: {
-            color: '#6B7280',
-            lineHeight: '1.75',
-            'h2, h3': {
-              color: '#2C2C2C',
-              fontWeight: '600',
-            },
-            a: {
-              color: '#4F46E5',
-              textDecoration: 'none',
-              '&:hover': { color: '#4338CA' },
-            },
-          },
-        },
-      }),
+      maxWidth: {
+        site: '1400px',
+      },
+      spacing: {
+        gutter: '4vw',
+        'gutter-mobile': '6vw',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

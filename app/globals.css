@@ -7,6 +7,41 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply text-charcoal bg-white;
+    @apply text-secondary bg-white;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-black;
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  .section-padding {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  .section-padding-y {
+    padding-top: 6vw;
+    padding-bottom: 6vw;
+  }
+  .max-site {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-primary {
+    @apply inline-block bg-black text-white px-8 py-3 text-sm font-medium uppercase tracking-wider hover:bg-neutral-800 transition-colors;
+  }
+  .btn-outline {
+    @apply inline-block border-2 border-black text-black px-8 py-3 text-sm font-medium uppercase tracking-wider hover:bg-black hover:text-white transition-colors;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-left: 6vw;
+    padding-right: 6vw;
   }
 }
