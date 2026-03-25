@@ -1,0 +1,11 @@
+{
+  "framework": "nextjs",
+  "regions": ["arn1"],
+  "redirects": [
+    {
+      "source": "/kontakt-och-visning",
+      "destination": "/kontakt",
+      "permanent": true
+    }
+  ]
+}
